@@ -1,13 +1,13 @@
 package com.codewithmosh.store.dtos;
 
-import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Data
+@AllArgsConstructor
 public class CheckoutResponse {
     private Long orderId;
+    private String checkoutUrl;
 
-    public CheckoutResponse(Long orderId) {
-        this.orderId = orderId;
-    }
 }

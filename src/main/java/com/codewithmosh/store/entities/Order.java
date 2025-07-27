@@ -33,7 +33,7 @@ public class Order {
     @Column(name = "total_prices")
     private BigDecimal totalPrices;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "order", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private Set<OrderItem> items = new LinkedHashSet<>();
 
     public static Order fromCart(Cart cart,User customer ) {
@@ -50,6 +50,10 @@ public class Order {
         });
 
         return order;
+    }
+
+    public Boolean isPlacedBy(User customer) {
+        return this.customer.equals(customer);
     }
 
 }
