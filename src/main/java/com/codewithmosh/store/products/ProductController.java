@@ -1,5 +1,4 @@
 package com.codewithmosh.store.products;
-import com.codewithmosh.store.dtos.CreateProductRequest;
 import com.codewithmosh.store.users.UserMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -42,7 +41,7 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<ProductDto> createProduct(
-            @RequestBody CreateProductRequest request,
+            @RequestBody ProductDto request,
             UriComponentsBuilder uriBuilder) {
 
           var category = categoryRepository.findById(request.getCategoryId())
